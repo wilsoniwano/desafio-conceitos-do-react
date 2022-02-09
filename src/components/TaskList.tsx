@@ -72,7 +72,12 @@ export function TaskList() {
       <header>
         <h2>Minhas tasks</h2>
 
-        <div className="input-group">
+        <form
+          className="input-group"
+          onSubmit={(e) => {
+            e.preventDefault();
+          }}
+        >
           <input
             type="text"
             placeholder="Adicionar novo todo"
@@ -86,7 +91,7 @@ export function TaskList() {
           >
             <FiCheckSquare size={16} color="#fff" />
           </button>
-        </div>
+        </form>
       </header>
 
       <main>
