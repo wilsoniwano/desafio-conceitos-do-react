@@ -28,7 +28,7 @@ export function TaskList() {
 
       setTasks([...tasks, newTask]);
     } else {
-      alert("Insira um título para a tarefa.");
+      alert("Insira um título para o todo.");
     }
   }
 
@@ -50,6 +50,20 @@ export function TaskList() {
 
   function handleRemoveTask(id: number) {
     // Remova uma task da listagem pelo ID
+
+    let newArray: Task[] = [];
+
+    tasks.forEach((item) => {
+      if (item.id !== id) {
+        newArray.push(item);
+      }
+    });
+
+    setTasks(newArray);
+  }
+
+  function hidePlaceholder() {
+    return tasks.length > 0;
   }
 
   return (
@@ -75,6 +89,9 @@ export function TaskList() {
       </header>
 
       <main>
+        <p className={hidePlaceholder() ? "hidden" : "placeholder"}>
+          Nenhum todo criado. Crie seu primeiro todo no campo acima.
+        </p>
         <ul>
           {tasks.map((task) => (
             <li key={task.id}>
