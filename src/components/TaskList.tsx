@@ -26,14 +26,28 @@ export function TaskList() {
         isComplete: false,
       };
 
-      setTasks((tasks) => [...tasks, newTask]);
+      setTasks([...tasks, newTask]);
     } else {
-      alert("Adicione um título para o to do e tente novamente");
+      alert("Insira um título para a tarefa.");
     }
   }
 
   function handleToggleTaskCompletion(id: number) {
     // Altere entre `true` ou `false` o campo `isComplete` de uma task com dado ID
+
+    let newArray: Task[] = [];
+
+    tasks.forEach((item) => {
+      if (item.id === id) {
+        item.isComplete === false
+          ? (item.isComplete = true)
+          : (item.isComplete = false);
+      }
+
+      newArray.push(item);
+    });
+
+    setTasks(newArray);
   }
 
   function handleRemoveTask(id: number) {
