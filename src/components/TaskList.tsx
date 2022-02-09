@@ -28,8 +28,6 @@ export function TaskList() {
 
       setTasks([...tasks, newTask]);
       setNewTaskTitle("");
-    } else {
-      alert("Insira um título para o todo.");
     }
   }
 
@@ -54,11 +52,7 @@ export function TaskList() {
 
     let newArray: Task[] = [];
 
-    tasks.forEach((item) => {
-      if (item.id !== id) {
-        newArray.push(item);
-      }
-    });
+    newArray = tasks.filter((obj) => obj.id !== id);
 
     setTasks(newArray);
   }
