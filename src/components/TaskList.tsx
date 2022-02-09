@@ -27,6 +27,7 @@ export function TaskList() {
       };
 
       setTasks([...tasks, newTask]);
+      setNewTaskTitle("");
     } else {
       alert("Insira um título para o todo.");
     }
