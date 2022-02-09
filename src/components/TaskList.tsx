@@ -39,9 +39,7 @@ export function TaskList() {
 
     tasks.forEach((item) => {
       if (item.id === id) {
-        item.isComplete === false
-          ? (item.isComplete = true)
-          : (item.isComplete = false);
+        item.isComplete = !item.isComplete;
       }
 
       newArray.push(item);
