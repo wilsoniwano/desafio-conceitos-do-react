@@ -80,7 +80,7 @@ export function TaskList() {
         >
           <input
             type="text"
-            placeholder="Adicionar novo todo"
+            placeholder="Adicionar nova task"
             onChange={(e) => setNewTaskTitle(e.target.value)}
             value={newTaskTitle}
           />
@@ -88,6 +88,7 @@ export function TaskList() {
             type="submit"
             data-testid="add-task-button"
             onClick={handleCreateNewTask}
+            aria-label="Adicionar task"
           >
             <FiCheckSquare size={16} color="#fff" />
           </button>
@@ -96,7 +97,7 @@ export function TaskList() {
 
       <main>
         <p className={hidePlaceholder() ? "hidden" : "placeholder"}>
-          Nenhum todo criado. Crie seu primeiro todo no campo acima.
+          Nenhuma task criada. Crie sua primeira task no campo acima.
         </p>
         <ul>
           {tasks.map((task) => (
@@ -121,6 +122,7 @@ export function TaskList() {
                 type="button"
                 data-testid="remove-task-button"
                 onClick={() => handleRemoveTask(task.id)}
+                aria-label={`Excluir task ${task.title}`}
               >
                 <FiTrash size={16} />
               </button>
