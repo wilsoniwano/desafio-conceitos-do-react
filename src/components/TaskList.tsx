@@ -113,8 +113,8 @@ export function TaskList() {
                     onClick={() => handleToggleTaskCompletion(task.id)}
                   />
                   <span className="checkmark"></span>
+                  <span className="task-label">{task.title}</span>
                 </label>
-                <p>{task.title}</p>
               </div>
 
               <button
